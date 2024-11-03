@@ -1,0 +1,115 @@
+.App {
+	text-align: left;
+	justify-content: left;
+	flex-direction: line;
+}
+
+.App-header {
+	background-color: #242830;
+	min-height: 10vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.25em;
+	color: white;
+	top: 0px;
+	position: sticky;
+}
+
+.App-header h1 {
+	margin: 0;
+}
+
+.App-header p {
+	margin: 0px 0px 20px;
+	font-size: 1.25em;
+}
+
+.avatar {
+	border-radius: 20% 5%;
+	outline: black;
+	outline-style: outset;
+	outline-width: 3px;
+}
+
+.row {
+	background-color: #282c34;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	color: white;
+	padding: 10px;
+}
+
+.coloum {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	color: white;
+	margin: 10px;
+}
+
+.gear {
+	display: flex;
+	min-width: 250px;
+	max-height: 500px;
+	flex-direction: column;
+	align-content: center;
+	justify-content: flex-start;
+	font-size: calc(10px + 1.5vmin);
+	color: white;
+	overflow: auto;
+}
+
+.gear h3 {
+	background-color: #282c34;
+	margin: 0;
+	text-align: center;
+	top: 0px;
+	position: sticky;
+}
+
+.gear p {
+	margin: 0;
+	padding: 0 0.5em 0 0.5em;
+	text-align: left;
+	border-color: black;
+	border-style: inset;
+	min-height: 1.5em;
+	max-height: 2em;
+}
+
+.attributes {
+	outline-style: groove;
+	outline-width: 2px;
+	outline-color: black;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-self: stretch;
+}
+
+.attributes h1 {
+	text-align: center;
+	margin-top: 0;
+}
+
+.dicerow {
+	display: flex;
+	flex-direction: row;
+	align-content: start;
+	justify-content: start;
+}
+
+.dicerow p {
+	margin: 5px;
+	pointer-events: all;
+}
+
+.dicerow p:hover {
+	color: cadetblue;
+	cursor: pointer;
+}
