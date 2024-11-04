@@ -2,11 +2,11 @@ import DiceProperty from './DiceProperty';
 
 function Attributes() {
 	const characterAttribues = [
-		{ name: 'Agility', level: 0, id: 0 },
-		{ name: 'Smarts', level: 0, id: 1 },
-		{ name: 'Spirit', level: 0, id: 2 },
-		{ name: 'Stregth', level: 0, id: 3 },
-		{ name: 'Vigor', level: 0, id: 4 },
+		{ name: 'Agility', level: 1, id: 0 },
+		{ name: 'Smarts', level: 1, id: 1 },
+		{ name: 'Spirit', level: 1, id: 2 },
+		{ name: 'Stregth', level: 1, id: 3 },
+		{ name: 'Vigor', level: 1, id: 4 },
 	];
 
 	const attributeList = characterAttribues.map((cAttribute) => (

@@ -11,11 +11,11 @@ function App() {
 	};
 
 	const testStyle = {
-		'min-height': '200px',
+		minHeight: '200px',
 		width: '80%',
-		'outline-style': 'groove',
-		'outline-width': '2px',
-		'outline-color': 'black',
+		outlineStyle: 'groove',
+		outlineWidth: '2px',
+		outlineColor: 'black',
 	};
 
 	return (

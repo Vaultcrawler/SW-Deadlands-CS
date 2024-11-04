@@ -82,6 +82,16 @@
 	max-height: 2em;
 }
 
+.gear button {
+	cursor: pointer;
+	width: 3em;
+	height: 2em;
+	background-color: #282c34;
+	text-align: center;
+	color: white;
+	margin-top: 5px;
+}
+
 .attributes {
 	outline-style: groove;
 	outline-width: 2px;
@@ -101,15 +111,25 @@
 	display: flex;
 	flex-direction: row;
 	align-content: start;
-	justify-content: start;
+	justify-content: space-between;
 }
 
 .dicerow p {
 	margin: 5px;
-	pointer-events: all;
+	min-width: 1.5em;
+	text-align: center;
 }
 
 .dicerow p:hover {
 	color: cadetblue;
+	cursor: default;
+}
+
+.dicerow button {
 	cursor: pointer;
+	width: 2em;
+	height: 2em;
+	background-color: #282c34;
+	text-align: center;
+	color: white;
 }

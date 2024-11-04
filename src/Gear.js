@@ -6,21 +6,6 @@ function Gear() {
 		{ title: 'Garlic', amount: 1, id: 2 },
 		{ title: 'Apple', amount: 2, id: 3 },
 		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
-		{ title: '', amount: 0, id: 0 },
 	];
 
 	const listItems = invenotry.map((item) => (
@@ -41,37 +26,38 @@ function Gear() {
 }
 
 function InventoryItem({ itemname, amount }) {
-	let [_amount, setAmount] = useState(amount);
-	const [used, setUsed] = useState(false);
-	const _name = itemname;
+	const [_amount, setAmount] = useState(amount);
+	const [_name, setName] = useState(itemname);
 
-	function handleClick() {
-		if (itemname === '') {
-			// add new
-			// add new emtpy
-			return;
-		}
-
+	function handleClickUse() {
 		if (_amount === 1) {
-			setUsed(true);
+			setName("");
 		}
 		setAmount(_amount - 1);
-		console.log('Amount: ' + _amount);
 	}
 
-	let content;
-	if (!used) {
-		const amountText = _amount > 1 ? `${_amount}x ` : '';
-
-		content = (
-			<p onClick={handleClick}>
-				{amountText}
-				{_name}
-			</p>
-		);
-	} else {
-		content = null;
+	function handleClickAdd() {
+		setName("test");
+		setAmount(1);
 	}
+
+	const textStyle = {
+		width: '80%',
+		display: 'flex',
+		flexDirection: "row",
+    	justifyContent: "space-between",
+	};
+
+	const button = _amount > 0 ? <button onClick={handleClickUse}>use</button> : <button onClick={handleClickAdd}>add</button>;
+
+	const amountText = _amount > 1 ? `${_amount}x ` : '';
+	const content = (
+		<p style={textStyle}>
+			{amountText}
+			{_name}
+			{button}
+		</p>
+	);
 
 	return content;
 }
