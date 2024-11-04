@@ -19,7 +19,7 @@ function Skills() {
 	));
 
 	return (
-		<div className='attributes'>
+		<div className='Attributes'>
 			<h1>Skills</h1>
 			{skillsList}
 		</div>

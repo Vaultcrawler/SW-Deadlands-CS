@@ -18,7 +18,7 @@ function Attributes() {
 	));
 
 	return (
-		<div className='attributes'>
+		<div className='Attributes'>
 			<h1>Attributes</h1>
 			{attributeList}
 		</div>

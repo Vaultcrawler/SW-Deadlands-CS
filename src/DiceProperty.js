@@ -1,3 +1,4 @@
+import './DiceProperty.css';
 import { useState } from "react";
 
 function DiceProperty({ name, level, attribute }) {
@@ -8,13 +9,14 @@ function DiceProperty({ name, level, attribute }) {
 
 	for(let i = 0; i < 5; i++)
 	{
+		let cStyle;
 		if (i === _level - 1)
 		{
-			diceRange.push(<p key={4 + i*2} style={selectedStyle}>{4 + i*2}</p>);
-			continue;
+			cStyle = selectedStyle;
 		}
-
-		diceRange.push(<p key={4 + i*2}>{4 + i*2}</p>);
+		const cKey = 4 + i * 2;
+		const args = [i + 1];
+		diceRange.push(<p style={cStyle} key={cKey} onClick={() => { onClickDice(args) }}>{cKey}</p>);
 	}
 
 	if (!attribute)
@@ -31,27 +33,17 @@ function DiceProperty({ name, level, attribute }) {
 	const extraInformation = attribute ? <p>{attribute}</p> : <p>{_level}</p>;
 
 	const content = (
-		<div className='dicerow'>
+		<div className='Dicerow'>
 			{diceRange}
 			{extraInformation}
 			<p style={nameStyle}>{name}</p>
-			<button onClick={onClickPlus}>+</button>
-			<button onClick={onClickMinus}>-</button>
 		</div>
 	);
 
-	function onClickPlus() {
-		if (_level < 5)
-		{
-			setLevel(_level + 1);
-		}
-	}
+	function onClickDice(level) {
+		if (!level) return;
 
-	function onClickMinus() {
-		if (_level > 1)
-		{
-			setLevel(_level - 1);
-		}
+		setLevel(level);
 	}
 
 	return content;

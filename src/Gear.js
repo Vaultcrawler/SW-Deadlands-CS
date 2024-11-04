@@ -1,3 +1,4 @@
+import './Gear.css';
 import { useState } from 'react';
 
 function Gear() {
@@ -15,7 +16,7 @@ function Gear() {
 	}
 
 	return (
-		<div className='gear'>
+		<div className='Gear'>
 			<h3>Gear</h3>
 			{listItems}
 		</div>

@@ -18,7 +18,7 @@ function Character() {
 	};
 
 	return (
-		<div className='attributes'>
+		<div className='Attributes'>
 			<p style={style}>Name: {user.name}</p>
 			<p style={style}>Nickname: {user.nickname}</p>
 			<p style={style}>Bennies: {user.bennies}</p>
