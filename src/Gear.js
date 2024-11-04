@@ -1,21 +1,18 @@
 import { useState } from 'react';
 
 function Gear() {
-	const invenotry = [
-		{ title: 'Cabbage', amount: 1, id: 1 },
-		{ title: 'Garlic', amount: 1, id: 2 },
-		{ title: 'Apple', amount: 2, id: 3 },
-		{ title: '', amount: 0, id: 0 },
-	];
 
-	const listItems = invenotry.map((item) => (
-		<div key={item.id}>
-			<InventoryItem
-				itemname={item.title}
-				amount={item.amount}
-			></InventoryItem>
+	let additionalSlots = [];
+	const listItems = 
+		<div key={0}>
+			<InventoryItem itemname={""} amount={0}></InventoryItem>
+			{additionalSlots}
+			<p><button onClick={onClick}>add</button> more slots</p>
 		</div>
-	));
+
+	function onClick() {
+		additionalSlots.push(<InventoryItem key={additionalSlots.length} itemname={""} amount={0}></InventoryItem>);
+	}
 
 	return (
 		<div className='gear'>
@@ -30,15 +27,17 @@ function InventoryItem({ itemname, amount }) {
 	const [_name, setName] = useState(itemname);
 
 	function handleClickUse() {
-		if (_amount === 1) {
+		if (_amount <= 1) {
 			setName("");
 		}
 		setAmount(_amount - 1);
 	}
 
 	function handleClickAdd() {
-		setName("test");
-		setAmount(1);
+		let newItem = prompt("What item do you wanna add?", "N/A");
+		let newAmount  = prompt("How many of this item do you have?", 1)
+		setName(newItem);
+		setAmount(newAmount);
 	}
 
 	const textStyle = {
