@@ -42,7 +42,7 @@ function InventoryItem({ itemname, amount }) {
 	}
 
 	const textStyle = {
-		width: '80%',
+		width: '60%',
 		display: 'flex',
 		flexDirection: "row",
     	justifyContent: "space-between",
