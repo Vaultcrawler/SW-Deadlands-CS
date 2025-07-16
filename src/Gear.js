@@ -17,7 +17,7 @@ function Gear() {
     function onClick() {
         setAdditionalSlots((prevSlots) => [
             ...prevSlots,
-            <InventoryItem key={'ii' + prevSlots.length} itemname={""} amount={0}></InventoryItem>,
+            <InventoryItem key={'ii' + Date.now()} itemname={""} amount={0}></InventoryItem>,
         ]);
     }
 
