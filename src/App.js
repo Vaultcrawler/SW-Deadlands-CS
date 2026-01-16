@@ -16,8 +16,6 @@ function App() {
 		maxWidth: '100%',
 	};
 
-	const isLargeScreen = typeof window !== 'undefined' && window.innerWidth > 1024;
-
 	const gridStyleRow1 = {
 		display: 'grid',
 		gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr 1fr' : '1fr',

@@ -4,15 +4,6 @@ import { CharacterContext } from './CharacterContext';
 function Character() {
 	const { character, updateCharacterInfo } = useContext(CharacterContext);
 
-	const style = {
-		margin: 0,
-	};
-
-	const style2 = {
-		textAlign: 'center',
-		margin: 0,
-	};
-
 	const handleInputChange = (field) => (e) => {
 		updateCharacterInfo(field, e.target.value);
 	};
