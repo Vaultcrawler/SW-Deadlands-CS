@@ -1,52 +1,53 @@
-import './DiceProperty.css';
-import { useState } from "react";
+import { useContext } from 'react';
+import { CharacterContext } from './CharacterContext';
 
-function DiceProperty({ name, level, attribute }) {
+function DiceProperty({ name, level, attribute, attributeKey, skillId, onChange }) {
+	const context = useContext(CharacterContext);
+	const selectedStyle = { color: 'cadetblue', fontWeight: 'bold' };
+	const diceValues = [4, 6, 8, 10, 12];
 
-	const [_level, setLevel] = useState(level);
-	const selectedStyle = { "color": "cadetblue" };
-	const diceRange = [];
-
-	for(let i = 0; i < 5; i++)
-	{
-		let cStyle;
-		if (i === _level - 1)
-		{
-			cStyle = selectedStyle;
+	const handleDiceClick = (newLevel) => {
+		if (attributeKey && context) {
+			context.updateAttribute(attributeKey, newLevel);
+		} else if (skillId !== undefined && context) {
+			context.updateSkill(skillId, newLevel);
+		} else if (onChange) {
+			onChange(newLevel);
 		}
-		const cKey = 4 + i * 2;
-		const args = [i + 1];
-		diceRange.push(<p style={cStyle} key={cKey} onClick={() => { onClickDice(args) }}>{cKey}</p>);
-	}
-
-	if (!attribute)
-	{
-		attribute = "";
-	}
-
-	const nameStyle = {
-		width: "10em",
-		textAlign: "left",
-		overflow: "auto"
 	};
 
-	const extraInformation = attribute ? <p>{attribute}</p> : <p>{_level}</p>;
+	const nameStyle = {
+		width: '10em',
+		textAlign: 'left',
+		overflow: 'auto',
+	};
 
-	const content = (
+	const diceRange = diceValues.map((dice, i) => {
+		const isSelected = i === level - 1;
+		return (
+			<p
+				style={isSelected ? selectedStyle : {}}
+				key={dice}
+				onClick={() => handleDiceClick(i + 1)}
+			>
+				d{dice}
+			</p>
+		);
+	});
+
+	const extraInformation = attribute ? (
+		<p>{attribute}</p>
+	) : (
+		<p>{level}</p>
+	);
+
+	return (
 		<div className='Dicerow'>
 			{diceRange}
 			{extraInformation}
 			<p style={nameStyle}>{name}</p>
 		</div>
 	);
-
-	function onClickDice(level) {
-		if (!level) return;
-
-		setLevel(level);
-	}
-
-	return content;
 }
 
 export default DiceProperty;

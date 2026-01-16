@@ -1,21 +1,20 @@
 import DiceProperty from './DiceProperty';
+import { useContext } from 'react';
+import { CharacterContext } from './CharacterContext';
 
 function Attributes() {
-	const characterAttribues = [
-		{ name: 'Agility', level: 1, id: 0 },
-		{ name: 'Smarts', level: 1, id: 1 },
-		{ name: 'Spirit', level: 1, id: 2 },
-		{ name: 'Stregth', level: 1, id: 3 },
-		{ name: 'Vigor', level: 1, id: 4 },
-	];
+	const { character } = useContext(CharacterContext);
 
-	const attributeList = characterAttribues.map((cAttribute) => (
-		<DiceProperty
-			key={cAttribute.id}
-			name={cAttribute.name}
-			level={cAttribute.level}
-		></DiceProperty>
-	));
+	const attributeList = Object.entries(character.attributes).map(
+		([key, attr]) => (
+			<DiceProperty
+				key={key}
+				name={attr.name}
+				level={attr.level}
+				attributeKey={key}
+			/>
+		)
+	);
 
 	return (
 		<div className='Attributes'>

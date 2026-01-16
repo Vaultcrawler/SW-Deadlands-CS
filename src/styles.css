@@ -1,0 +1,687 @@
+/* ============================================
+   GLOBAL STYLES & DARKMODE
+   ============================================ */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+		'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: #1a1d23;
+	color: #e0e0e0;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+/* ============================================
+   APP LAYOUT
+   ============================================ */
+
+.App {
+	text-align: left;
+	justify-content: left;
+	flex-direction: line;
+	min-height: 100vh;
+	background-color: #1a1d23;
+}
+
+.App-header {
+	background: linear-gradient(135deg, #0f1419 0%, #1a1f2a 100%);
+	border-bottom: 3px solid #d4a373;
+	min-height: 120px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.25em;
+	color: #d4a373;
+	top: 0px;
+	position: sticky;
+	z-index: 100;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.App-header h1 {
+	margin: 0;
+	font-size: 2.5em;
+	font-weight: bold;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+	letter-spacing: 2px;
+}
+
+.App-header p {
+	margin: 8px 0 0 0;
+	font-size: 1.1em;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* ============================================
+   ROW & COLUMN LAYOUT
+   ============================================ */
+
+.row {
+	background-color: #1a1d23;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	color: white;
+	padding: 20px;
+	gap: 20px;
+	flex-wrap: wrap;
+	border-bottom: 1px solid #333;
+}
+
+.row:last-child {
+	border-bottom: none;
+}
+
+.column,
+.coloum {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: flex-start;
+	gap: 20px;
+	padding: 0;
+	flex: 1;
+	min-width: 320px;
+	max-width: 500px;
+}
+
+/* ============================================
+   CHARACTER AVATAR
+   ============================================ */
+
+.avatar {
+	border-radius: 20% 5%;
+	border: 4px solid #d4a373;
+	box-shadow: 0 0 20px rgba(212, 163, 115, 0.3);
+	max-width: 100%;
+	height: auto;
+	margin-top: 20px;
+}
+
+/* ============================================
+   SECTIONS (Generic Box Style)
+   ============================================ */
+
+.Section,
+.Attributes {
+	background: linear-gradient(180deg, #2a2e35 0%, #252930 100%);
+	border: 2px solid #d4a373;
+	border-radius: 8px;
+	padding: 18px;
+	width: 100%;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.Section h3,
+.Attributes h1 {
+	margin: 0 0 15px 0;
+	color: #d4a373;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #d4a373;
+	text-align: center;
+}
+
+.Attributes h1 {
+	font-size: 1.5em;
+	margin-bottom: 20px;
+}
+
+/* ============================================
+   ITEM LIST & BOXES
+   ============================================ */
+
+.ItemList {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.ItemBox {
+	background-color: #1f2329;
+	border-left: 4px solid #d4a373;
+	padding: 12px;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	border: 1px solid #333;
+}
+
+.ItemBox:hover {
+	background-color: #252930;
+	border-color: #d4a373;
+	box-shadow: 0 0 8px rgba(212, 163, 115, 0.2);
+}
+
+.ItemHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.ItemHeader strong {
+	color: #d4a373;
+	font-weight: 600;
+}
+
+.ItemHeader span {
+	color: #999;
+	font-size: 0.85em;
+}
+
+.ItemHeader button {
+	background-color: #ff4444;
+	color: white;
+	border: none;
+	border-radius: 3px;
+	padding: 4px 8px;
+	cursor: pointer;
+	font-size: 0.8em;
+	font-weight: bold;
+	transition: background-color 0.2s;
+}
+
+.ItemHeader button:hover {
+	background-color: #cc0000;
+}
+
+.ItemDescription {
+	margin: 10px 0 0 0;
+	font-size: 0.9em;
+	color: #bbb;
+	line-height: 1.5;
+	padding: 8px 0;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.Section button,
+.Attributes button,
+.Gear button,
+.Dicerow button {
+	background: linear-gradient(135deg, #d4a373 0%, #c49563 100%);
+	color: #1a1d23;
+	border: none;
+	border-radius: 4px;
+	padding: 10px 16px;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 0.95em;
+	transition: all 0.2s;
+	margin-top: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.Section button:hover,
+.Attributes button:hover,
+.Gear button:hover,
+.Dicerow button:hover {
+	background: linear-gradient(135deg, #e8b986 0%, #d4a373 100%);
+	box-shadow: 0 4px 12px rgba(212, 163, 115, 0.4);
+	transform: translateY(-2px);
+}
+
+.Section button:active,
+.Attributes button:active,
+.Gear button:active,
+.Dicerow button:active {
+	transform: translateY(0);
+}
+
+/* ============================================
+   INPUT FIELDS & FORMS
+   ============================================ */
+
+input[type='text'],
+input[type='number'],
+textarea,
+select {
+	background-color: #0f1217;
+	color: #d4a373;
+	border: 1px solid #555;
+	border-radius: 4px;
+	padding: 8px 10px;
+	font-size: 0.95em;
+	font-family: inherit;
+	transition: border-color 0.2s, box-shadow 0.2s;
+	font-weight: 500;
+}
+
+input[type='text']:focus,
+input[type='number']:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+	border-color: #d4a373;
+	box-shadow: 0 0 8px rgba(212, 163, 115, 0.3);
+}
+
+input[type='checkbox'] {
+	accent-color: #d4a373;
+	cursor: pointer;
+}
+
+label {
+	color: #e0e0e0;
+	cursor: pointer;
+}
+
+/* ============================================
+   DICE ROW (Attributes & Skills)
+   ============================================ */
+
+.Dicerow {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 10px 0;
+	border-bottom: 1px solid #333;
+	transition: background-color 0.2s;
+}
+
+.Dicerow:hover {
+	background-color: #252930;
+	padding: 10px 8px;
+	border-radius: 4px;
+}
+
+.Dicerow:last-child {
+	border-bottom: none;
+}
+
+.Dicerow p {
+	margin: 0;
+	padding: 6px 10px;
+	min-width: 2.5em;
+	text-align: center;
+	border-radius: 3px;
+	color: #d4a373;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s;
+	background-color: rgba(212, 163, 115, 0.1);
+	border: 1px solid transparent;
+}
+
+.Dicerow p:hover {
+	background-color: rgba(212, 163, 115, 0.2);
+	border-color: #d4a373;
+	box-shadow: 0 0 8px rgba(212, 163, 115, 0.3);
+}
+
+.Dicerow p:last-child {
+	flex-grow: 1;
+	text-align: left;
+	color: #bbb;
+	font-weight: normal;
+	background-color: transparent;
+	border: none;
+	cursor: default;
+}
+
+.Dicerow p:last-child:hover {
+	background-color: transparent;
+	border-color: transparent;
+	box-shadow: none;
+}
+
+/* ============================================
+   GEAR SECTION
+   ============================================ */
+
+.Gear {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 400px;
+	background: linear-gradient(180deg, #2a2e35 0%, #252930 100%);
+	border: 2px solid #d4a373;
+	border-radius: 8px;
+	padding: 18px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.Gear h3 {
+	margin: 0 0 15px 0;
+	color: #d4a373;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #d4a373;
+}
+
+.Gear p {
+	margin: 8px 0;
+	padding: 8px 12px;
+	text-align: left;
+	border-left: 3px solid #d4a373;
+	background-color: #1f2329;
+	border-radius: 3px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #e0e0e0;
+	transition: background-color 0.2s;
+}
+
+.Gear p:hover {
+	background-color: #252930;
+}
+
+.Gear button {
+	background: linear-gradient(135deg, #d4a373 0%, #c49563 100%);
+	color: #1a1d23;
+	border: none;
+	border-radius: 4px;
+	padding: 6px 12px;
+	cursor: pointer;
+	font-size: 0.85em;
+	font-weight: bold;
+	margin-left: 8px;
+	transition: all 0.2s;
+}
+
+.Gear button:hover {
+	background: linear-gradient(135deg, #e8b986 0%, #d4a373 100%);
+	box-shadow: 0 2px 8px rgba(212, 163, 115, 0.3);
+}
+
+/* ============================================
+   CHARACTER SHEET SECTION
+   ============================================ */
+
+.Character {
+	background: linear-gradient(180deg, #2a2e35 0%, #252930 100%);
+	border: 2px solid #d4a373;
+	border-radius: 8px;
+	padding: 18px;
+	width: 100%;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.Character p {
+	margin: 8px 0;
+	color: #e0e0e0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Character p strong {
+	color: #d4a373;
+	min-width: 120px;
+}
+
+.Character input {
+	flex-grow: 1;
+	margin-left: 10px;
+}
+
+.Character .row {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 2px solid #333;
+}
+
+.Character .row div {
+	text-align: center;
+	padding: 12px;
+	background-color: #1f2329;
+	border-radius: 4px;
+	border: 1px solid #333;
+}
+
+.Character .row div p {
+	margin: 0;
+	display: block;
+	text-align: center;
+	color: #999;
+	font-size: 0.9em;
+}
+
+.Character .row div p:last-child {
+	color: #d4a373;
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+/* ============================================
+   HINDRANCES (Major/Minor badges)
+   ============================================ */
+
+.BadgeMajor {
+	display: inline-block;
+	padding: 4px 8px;
+	border-radius: 3px;
+	font-size: 0.75em;
+	margin-left: 8px;
+	background-color: #ff4444;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.BadgeMinor {
+	display: inline-block;
+	padding: 4px 8px;
+	border-radius: 3px;
+	font-size: 0.75em;
+	margin-left: 8px;
+	background-color: #ffaa00;
+	color: #1a1d23;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+	.column,
+	.coloum {
+		max-width: 100%;
+		min-width: 100%;
+	}
+
+	.row {
+		padding: 15px;
+		gap: 15px;
+	}
+}
+
+@media (max-width: 768px) {
+	.App-header {
+		min-height: 90px;
+	}
+
+	.App-header h1 {
+		font-size: 1.8em;
+		letter-spacing: 1px;
+	}
+
+	.App-header p {
+		font-size: 1em;
+		margin-top: 5px;
+	}
+
+	.row {
+		flex-direction: column;
+		align-items: stretch;
+		padding: 12px;
+		gap: 12px;
+	}
+
+	.column,
+	.coloum {
+		max-width: 100%;
+		min-width: 100%;
+	}
+
+	.Section,
+	.Gear,
+	.Attributes {
+		padding: 15px;
+	}
+
+	.Section h3,
+	.Attributes h1 {
+		font-size: 1.2em;
+		margin-bottom: 12px;
+	}
+
+	.ItemBox {
+		padding: 10px;
+	}
+
+	input[type='text'],
+	input[type='number'],
+	textarea,
+	select {
+		padding: 8px;
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 480px) {
+	.App-header {
+		min-height: 80px;
+	}
+
+	.App-header h1 {
+		font-size: 1.3em;
+		letter-spacing: 0px;
+		margin: 0;
+	}
+
+	.App-header p {
+		font-size: 0.9em;
+		margin-top: 3px;
+	}
+
+	.Section,
+	.Gear,
+	.Attributes {
+		padding: 12px;
+		margin: 0;
+	}
+
+	.Section h3,
+	.Attributes h1 {
+		font-size: 1.1em;
+		margin-bottom: 10px;
+		padding-bottom: 8px;
+	}
+
+	.ItemBox {
+		padding: 8px;
+		border-left-width: 3px;
+	}
+
+	.ItemHeader {
+		gap: 8px;
+	}
+
+	.ItemHeader button {
+		padding: 2px 4px;
+		font-size: 0.75em;
+	}
+
+	.ItemDescription {
+		font-size: 0.85em;
+		margin-top: 6px;
+	}
+
+	.Dicerow {
+		flex-wrap: wrap;
+		padding: 6px 0;
+		gap: 6px;
+	}
+
+	.Dicerow p {
+		min-width: 2em;
+		padding: 4px 6px;
+		font-size: 0.85em;
+		margin: 2px;
+	}
+
+	.Dicerow p:last-child {
+		flex-basis: 100%;
+		margin-top: 6px;
+	}
+
+	.avatar {
+		max-height: 250px !important;
+		border-width: 3px;
+	}
+
+	/* Character Info Grid */
+	[style*='gridTemplateColumns: 100px 1fr'] {
+		grid-template-columns: 80px 1fr !important;
+		gap: 8px !important;
+	}
+
+	input[type='text'],
+	input[type='number'],
+	textarea,
+	select {
+		padding: 6px;
+		font-size: 14px;
+	}
+
+	.Dicerow p {
+		flex: 0 0 calc(20% - 6px);
+	}
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #1a1d23;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #d4a373;
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #e8b986;
+}
